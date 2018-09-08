@@ -36,7 +36,7 @@ class Context {
             throw new TypeError('[content] must be a string, object or an instance of Buffer.');
         }
         if (typeof options !== 'object') throw new TypeError('[options] must be an object.');
-        content = this.bufferFrom(content);
+        content = Context.bufferFrom(content);
         return this.publisherChannel.publish(exchange, routingKey, content, options);
     }
 
@@ -53,7 +53,7 @@ class Context {
             throw new TypeError('[content] must be a string, object or an instance of Buffer.');
         }
         if (typeof options !== 'object') throw new TypeError('[options] must be an object.');
-        content = this.bufferFrom(content);
+        content = Context.bufferFrom(content);
         return this.publisherChannel.sendToQueue(queue, content, options);
     }
 
